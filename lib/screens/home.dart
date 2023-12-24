@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       /* sidebar.dart */
-      drawer: SideBar(),
+      drawer: SideBar(activePage: "Home"),
 
       /* App Bar */
       appBar: AppBar(

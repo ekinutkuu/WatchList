@@ -17,7 +17,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       /* sidebar.dart */
-      drawer: SideBar(),
+      drawer: SideBar(activePage: "Profile"),
 
       /* App Bar */
       appBar: AppBar(

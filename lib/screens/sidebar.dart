@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SideBar extends StatelessWidget {
-  const SideBar({super.key});
+
+  final String activePage;
+  const SideBar({Key? key, required this.activePage});
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +35,13 @@ class SideBar extends StatelessWidget {
             leading: Icon(Icons.home),
             textColor: LightBlue,
             iconColor: LightBlue,
-            tileColor: Color(0xFF203745),
+            tileColor: activePage == "Home" ? Color(0xFF203745) : null,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            onTap: () {},
+            onTap: (){
+              Navigator.pushNamed(context, "/");
+            },
           ),
           SizedBox(height: 10.0,),
           ListTile(
@@ -45,7 +49,13 @@ class SideBar extends StatelessWidget {
             leading: Icon(Icons.person),
             textColor: LightBlue,
             iconColor: LightBlue,
-            onTap: (){},
+            tileColor: activePage == "Profile" ? Color(0xFF203745) : null,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            onTap: (){
+              Navigator.pushNamed(context, "/profile");
+            },
           ),
           SizedBox(height: 10.0,),
           ListTile(
