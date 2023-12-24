@@ -47,6 +47,52 @@ class _HomeState extends State<Home> {
               ),
             ),
 
+            /* Trendings */
+            SizedBox(height: 15.0),
+            Row(
+              children: [
+                SizedBox(width: 20.0,),
+                Expanded(
+                  child: Text("Trendings", textAlign: TextAlign.left),
+                ),
+                Expanded(
+                  child: Text("See More...", textAlign: TextAlign.right),
+                ),
+                SizedBox(width: 20.0,),
+              ],
+            ),
+            SizedBox(height: 15.0,),
+            Container(
+              color: DarkBlue,
+              width: 380.0,
+              height: 280.0,
+            ),
+
+            /* Action Movies */
+            SizedBox(height: 15.0,),
+            Row(
+              children: [
+                SizedBox(width: 20.0,),
+                Expanded(
+                  child: Text("Action Movies", textAlign: TextAlign.left),
+                ),
+                Expanded(
+                  child: Text("See More...", textAlign: TextAlign.right),
+                ),
+                SizedBox(width: 20.0,),
+              ],
+            ),
+            SizedBox(height: 15.0,),
+            Container(
+              color: DarkBlue,
+              width: 380.0,
+              height: 150.0,
+            ),
+
+            /* ... Movies */
+            /* ... Movies */
+            /* ... Movies */
+
           ],
         ),
       ),
