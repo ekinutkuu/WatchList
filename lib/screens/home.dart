@@ -33,16 +33,39 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+
             /* Search Bar */
             SizedBox(height: 15.0,),
             Align(
               alignment: Alignment.center,
               child: Container(
-                width: 350.0,
-                height: 50.0,
+                height: 55.0,
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.symmetric(horizontal: 10.0,),
                 decoration: BoxDecoration(
                   color: DarkBlue,
                   borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      color: Colors.white54,
+                      size: 30.0,
+                    ),
+                    Container(
+                      width: 300.0,
+                      margin: EdgeInsets.only(left: 15.0),
+                      child: TextFormField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Search...",
+                          hintStyle: TextStyle(color: Colors.white54,),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
