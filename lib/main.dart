@@ -4,6 +4,11 @@ import 'package:watchlist/screens/profile.dart';
 
 void main() => runApp(MaterialApp(
 
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData.dark().copyWith(
+    scaffoldBackgroundColor: Color(0xFF1a2531),
+  ),
+
   initialRoute: "/",
 
   routes: {

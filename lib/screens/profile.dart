@@ -12,6 +12,7 @@ class _ProfileState extends State<Profile> {
 
   Color DarkBlue = Color(0xFF1a2531);
   Color LightBlue = Color(0xFFbcdef8);
+  Color PaleBlue = Color(0xFF2b3745);
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +39,12 @@ class _ProfileState extends State<Profile> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                color: DarkBlue,
+                color: LightBlue,
                 width: 180.0,
                 height: 200.0,
               ),
               Container(
-                color: DarkBlue,
+                color: LightBlue,
                 width: 150.0,
                 height: 170.0,
               ),
@@ -56,12 +57,12 @@ class _ProfileState extends State<Profile> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                color: DarkBlue,
+                color: LightBlue,
                 width: 150.0,
                 height: 40.0,
               ),
               Container(
-                color: DarkBlue,
+                color: LightBlue,
                 width: 150.0,
                 height: 40.0,
               ),
@@ -71,7 +72,7 @@ class _ProfileState extends State<Profile> {
           /* History list */
           SizedBox(height: 15.0,),
           Container(
-            color: DarkBlue,
+            color: LightBlue,
             width: 400.0,
             height: 200.0,
           ),
@@ -82,12 +83,12 @@ class _ProfileState extends State<Profile> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                color: DarkBlue,
+                color: LightBlue,
                 width: 150.0,
                 height: 40.0,
               ),
               Container(
-                color: DarkBlue,
+                color: LightBlue,
                 width: 150.0,
                 height: 40.0,
               ),

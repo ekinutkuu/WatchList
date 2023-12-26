@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist/screens/sidebar.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,6 +13,7 @@ class _HomeState extends State<Home> {
 
   Color DarkBlue = Color(0xFF1a2531);
   Color LightBlue = Color(0xFFbcdef8);
+  Color PaleBlue = Color(0xFF2b3745);
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +34,8 @@ class _HomeState extends State<Home> {
       /* Body */
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             /* Search Bar */
             SizedBox(height: 15.0,),
             Align(
@@ -43,7 +45,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.all(10),
                 margin: EdgeInsets.symmetric(horizontal: 10.0,),
                 decoration: BoxDecoration(
-                  color: DarkBlue,
+                  color: PaleBlue,
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Row(
@@ -71,28 +73,52 @@ class _HomeState extends State<Home> {
             ),
 
             /* Trendings */
-            SizedBox(height: 15.0),
+            SizedBox(height: 20.0),
             Row(
               children: [
                 SizedBox(width: 20.0,),
                 Expanded(
-                  child: Text("Trendings", textAlign: TextAlign.left),
+                  child: Text("Trendings",
+                    style: TextStyle(fontSize: 20.0),
+                    textAlign: TextAlign.left),
                 ),
                 Expanded(
-                  child: Text("See More...", textAlign: TextAlign.right),
+                  child: Text("See More...",
+                    style: TextStyle(fontSize: 20.0),
+                    textAlign: TextAlign.right),
                 ),
                 SizedBox(width: 20.0,),
               ],
             ),
-            SizedBox(height: 15.0,),
-            Container(
-              color: DarkBlue,
-              width: 380.0,
-              height: 280.0,
+            SizedBox(height: 25.0,),
+            SizedBox(
+              width: double.infinity,
+              child: CarouselSlider.builder(
+                itemCount: 10,
+                options: CarouselOptions(
+                  height: 300.0,
+                  autoPlay: true,
+                  viewportFraction: 0.55,
+                  enlargeCenterPage: true,
+                  pageSnapping: true,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  autoPlayAnimationDuration: const Duration(seconds: 2),
+                ),
+                itemBuilder: (context, itemIndex, pageViewIndex){
+                  return ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      height: 300.0,
+                      width: 200.0,
+                      color: PaleBlue,
+                    ),
+                  );
+                },
+              ),
             ),
 
             /* Action Movies */
-            SizedBox(height: 15.0,),
+            SizedBox(height: 25.0,),
             Row(
               children: [
                 SizedBox(width: 20.0,),
@@ -105,16 +131,16 @@ class _HomeState extends State<Home> {
                 SizedBox(width: 20.0,),
               ],
             ),
-            SizedBox(height: 15.0,),
+            SizedBox(height: 20.0,),
             Container(
-              color: DarkBlue,
+              color: PaleBlue,
               width: 380.0,
               height: 150.0,
             ),
 
-            /* ... Movies */
-            /* ... Movies */
-            /* ... Movies */
+            // TODO: ... Movies
+            // TODO: ... Movies
+            // TODO: ... Movies
 
           ],
         ),
