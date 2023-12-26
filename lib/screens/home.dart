@@ -23,10 +23,13 @@ class _HomeState extends State<Home> {
 
       /* App Bar */
       appBar: AppBar(
-        title: Text("[Logo] Watch List",
-          style: TextStyle(color: LightBlue,),
+        title: Image.asset(
+          "assets/logo.png",
+          fit: BoxFit.cover,
+          height: 50.0,
+          filterQuality: FilterQuality.high,
         ),
-        backgroundColor: DarkBlue,
+        backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(color: LightBlue),
         centerTitle: true,
       ),

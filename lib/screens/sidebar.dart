@@ -24,11 +24,11 @@ class SideBar extends StatelessWidget {
       child: ListView(
         children: [
           SizedBox(height: 50.0,),
-          Text("Watch List",
-          style: TextStyle(
-            fontSize: 30.0, fontWeight: FontWeight.bold, color: LightBlue,),
-            textAlign: TextAlign.center,
-          ),
+          Image.asset(
+            "assets/logo.png",
+            fit: BoxFit.cover,
+            height: 50.0,
+            filterQuality: FilterQuality.high,),
           SizedBox(height: 50.0,),
           ListTile(
             title: const Text("Home"),
