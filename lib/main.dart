@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist/screens/home.dart';
 import 'package:watchlist/screens/profile.dart';
+import 'package:watchlist/screens/watchlist.dart';
 
 void main() => runApp(MaterialApp(
 
@@ -14,6 +15,7 @@ void main() => runApp(MaterialApp(
   routes: {
     "/": (context) => Home(),
     "/profile": (context) => Profile(),
+    "/watchlist": (context) => Watchlist(),
   },
 
 ));

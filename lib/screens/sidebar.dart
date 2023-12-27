@@ -63,7 +63,9 @@ class SideBar extends StatelessWidget {
             leading: Icon(Icons.list),
             textColor: LightBlue,
             iconColor: LightBlue,
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, "/watchlist");
+            },
           ),
           SizedBox(height: 10.0,),
           ListTile(
