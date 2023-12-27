@@ -63,6 +63,10 @@ class SideBar extends StatelessWidget {
             leading: Icon(Icons.list),
             textColor: LightBlue,
             iconColor: LightBlue,
+            tileColor: activePage == "Watchlist" ? Color(0xFF203745) : null,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
             onTap: (){
               Navigator.pushNamed(context, "/watchlist");
             },

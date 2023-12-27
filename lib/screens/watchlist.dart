@@ -18,7 +18,7 @@ class _WatchlistState extends State<Watchlist> {
   Widget build(BuildContext context) {
     return Scaffold(
       /* sidebar.dart */
-      drawer: SideBar(activePage: "Profile"),
+      drawer: SideBar(activePage: "Watchlist"),
 
       /* App Bar */
       appBar: AppBar(
@@ -37,7 +37,13 @@ class _WatchlistState extends State<Watchlist> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Row(
+              children: [
+                Container(
 
+                ),
+              ],
+            ),
           ],
         ),
       ),
