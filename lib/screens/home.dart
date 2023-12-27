@@ -76,10 +76,10 @@ class _HomeState extends State<Home> {
             ),
 
             /* Trendings */
-            SizedBox(height: 20.0),
+            SizedBox(height: 25.0),
             Row(
               children: [
-                SizedBox(width: 20.0,),
+                SizedBox(width: 25.0,),
                 Expanded(
                   child: Text("Trendings",
                     style: TextStyle(fontSize: 20.0),
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
                     style: TextStyle(fontSize: 20.0),
                     textAlign: TextAlign.right),
                 ),
-                SizedBox(width: 20.0,),
+                SizedBox(width: 25.0,),
               ],
             ),
             SizedBox(height: 25.0,),
@@ -124,27 +124,124 @@ class _HomeState extends State<Home> {
             SizedBox(height: 25.0,),
             Row(
               children: [
-                SizedBox(width: 20.0,),
+                SizedBox(width: 25.0,),
                 Expanded(
-                  child: Text("Action Movies", textAlign: TextAlign.left),
+                  child: Text("Action Movies",
+                    style: TextStyle(fontSize: 18.0),
+                    textAlign: TextAlign.left),
                 ),
                 Expanded(
-                  child: Text("See More...", textAlign: TextAlign.right),
+                  child: Text("See More...",
+                    style: TextStyle(fontSize: 18.0),
+                    textAlign: TextAlign.right),
                 ),
-                SizedBox(width: 20.0,),
+                SizedBox(width: 25.0,),
               ],
             ),
-            SizedBox(height: 20.0,),
-            Container(
-              color: PaleBlue,
-              width: 380.0,
-              height: 150.0,
+            SizedBox(height: 25.0,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for(int i=1; i<=10; i++)
+                  InkWell(
+                    onTap: (){},
+                    child: Container(
+                      width: 185,
+                      height: 250,
+                      margin: EdgeInsets.only(left: 10),
+                      decoration: BoxDecoration(
+                        color: PaleBlue,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
 
-            // TODO: ... Movies
-            // TODO: ... Movies
-            // TODO: ... Movies
+            /* Comedy Movies */
+            SizedBox(height: 25.0,),
+            Row(
+              children: [
+                SizedBox(width: 25.0,),
+                Expanded(
+                  child: Text("Comedy Movies",
+                      style: TextStyle(fontSize: 18.0),
+                      textAlign: TextAlign.left),
+                ),
+                Expanded(
+                  child: Text("See More...",
+                      style: TextStyle(fontSize: 18.0),
+                      textAlign: TextAlign.right),
+                ),
+                SizedBox(width: 25.0,),
+              ],
+            ),
+            SizedBox(height: 25.0,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for(int i=1; i<=10; i++)
+                    InkWell(
+                      onTap: (){},
+                      child: Container(
+                        width: 185,
+                        height: 250,
+                        margin: EdgeInsets.only(left: 10),
+                        decoration: BoxDecoration(
+                          color: PaleBlue,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
 
+            /* Adventure Movies */
+            SizedBox(height: 25.0,),
+            Row(
+              children: [
+                SizedBox(width: 25.0,),
+                Expanded(
+                  child: Text("Adventure Movies",
+                      style: TextStyle(fontSize: 18.0),
+                      textAlign: TextAlign.left),
+                ),
+                Expanded(
+                  child: Text("See More...",
+                      style: TextStyle(fontSize: 18.0),
+                      textAlign: TextAlign.right),
+                ),
+                SizedBox(width: 25.0,),
+              ],
+            ),
+            SizedBox(height: 25.0,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for(int i=1; i<=10; i++)
+                    InkWell(
+                      onTap: (){},
+                      child: Container(
+                        width: 185,
+                        height: 250,
+                        margin: EdgeInsets.only(left: 10),
+                        decoration: BoxDecoration(
+                          color: PaleBlue,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+
+
+            SizedBox(height: 25.0,),
           ],
         ),
       ),
