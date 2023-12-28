@@ -145,7 +145,9 @@ class _HomeState extends State<Home> {
                 children: [
                   for(int i=1; i<=10; i++)
                   InkWell(
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.pushNamed(context, "/moviePage");
+                    },
                     child: Container(
                       width: 185,
                       height: 250,
@@ -185,7 +187,9 @@ class _HomeState extends State<Home> {
                 children: [
                   for(int i=1; i<=10; i++)
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.pushNamed(context, "/moviePage");
+                      },
                       child: Container(
                         width: 185,
                         height: 250,
@@ -225,7 +229,9 @@ class _HomeState extends State<Home> {
                 children: [
                   for(int i=1; i<=10; i++)
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.pushNamed(context, "/moviePage");
+                      },
                       child: Container(
                         width: 185,
                         height: 250,
