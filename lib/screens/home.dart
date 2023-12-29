@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist/screens/sidebar.dart';
 import 'package:watchlist/constants/colors.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:watchlist/widgets/trendings.dart';
 import '../api/api.dart';
 import '../models/movie.dart';
 
@@ -102,27 +102,20 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(height: 25.0,),
             SizedBox(
-              width: double.infinity,
-              child: CarouselSlider.builder(
-                itemCount: 10,
-                options: CarouselOptions(
-                  height: 300.0,
-                  autoPlay: true,
-                  viewportFraction: 0.55,
-                  enlargeCenterPage: true,
-                  pageSnapping: true,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  autoPlayAnimationDuration: const Duration(seconds: 2),
-                ),
-                itemBuilder: (context, itemIndex, pageViewIndex){
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Container(
-                      height: 300.0,
-                      width: 200.0,
-                      color: PaleBlue,
-                    ),
-                  );
+              child: FutureBuilder(
+                future: trendingMovies,
+                builder: (context, snapshot){
+                  if (snapshot.hasError){
+                    return Center(
+                      child: Text(snapshot.error.toString()),
+                    );
+                  }
+                  else if (snapshot.hasData){
+                    return Trendings(snapshot: snapshot,);
+                  }
+                  else{
+                    return const Center(child: CircularProgressIndicator());
+                  }
                 },
               ),
             ),
