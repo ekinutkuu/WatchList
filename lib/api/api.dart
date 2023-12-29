@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:watchlist/api_key.dart';
+import 'package:watchlist/api_key2.dart';
 import 'package:watchlist/models/movie.dart';
 
 class Api{
@@ -10,7 +10,7 @@ class Api{
     final response = await http.get(Uri.parse(_trendingURL));
     if (response.statusCode == 200){
       final decodedData = json.decode(response.body)['results'] as List;
-      print(decodedData);
+      //print(decodedData);
       return decodedData.map((movie) => Movie.fromJson(movie)).toList();
     }
     else{

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist/screens/sidebar.dart';
+import 'package:watchlist/constants/colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../api/api.dart';
 import '../models/movie.dart';
@@ -20,10 +21,6 @@ class _HomeState extends State<Home> {
     super.initState();
     trendingMovies = Api().getTrendingMovies();
   }
-
-  Color DarkBlue = Color(0xFF1a2531);
-  Color LightBlue = Color(0xFFbcdef8);
-  Color PaleBlue = Color(0xFF2b3745);
 
   @override
   Widget build(BuildContext context) {

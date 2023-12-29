@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist/screens/sidebar.dart';
+import 'package:watchlist/constants/colors.dart';
 
 class Watchlist extends StatefulWidget {
   const Watchlist({super.key});
@@ -9,11 +10,6 @@ class Watchlist extends StatefulWidget {
 }
 
 class _WatchlistState extends State<Watchlist> {
-
-  Color DarkBlue = Color(0xFF1a2531);
-  Color LightBlue = Color(0xFFbcdef8);
-  Color PaleBlue = Color(0xFF2b3745);
-
   @override
   Widget build(BuildContext context) {
 

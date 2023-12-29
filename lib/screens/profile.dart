@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist/screens/sidebar.dart';
+import 'package:watchlist/constants/colors.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -9,11 +10,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
-  Color DarkBlue = Color(0xFF1a2531);
-  Color LightBlue = Color(0xFFbcdef8);
-  Color PaleBlue = Color(0xFF2b3745);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist/screens/sidebar.dart';
+import 'package:watchlist/constants/colors.dart';
 
 class MoviePage extends StatefulWidget {
   const MoviePage({super.key});
@@ -9,11 +10,6 @@ class MoviePage extends StatefulWidget {
 }
 
 class _MoviePageState extends State<MoviePage> {
-
-  Color DarkBlue = Color(0xFF1a2531);
-  Color LightBlue = Color(0xFFbcdef8);
-  Color PaleBlue = Color(0xFF2b3745);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

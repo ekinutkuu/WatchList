@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:watchlist/constants/colors.dart';
 
 class SideBar extends StatelessWidget {
 
@@ -7,10 +8,6 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Color DarkBlue = Color(0xFF1a2531);
-    Color LightBlue = Color(0xFFbcdef8);
-
     return Drawer(
       width: 250.0,
       shadowColor: DarkBlue,
