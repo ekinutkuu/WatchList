@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:watchlist/screens/sidebar.dart';
 import 'package:watchlist/constants/colors.dart';
 import 'package:watchlist/widgets/trendings.dart';
+import 'package:watchlist/widgets/genreMovies.dart';
 import '../api/api.dart';
 import '../models/movie.dart';
 
@@ -15,11 +16,18 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   late Future<List<Movie>> trendingMovies;
+  late Future<List<Movie>> actionMovies;
+  late Future<List<Movie>> comedyMovies;
+  late Future<List<Movie>> adventureMovies;
+
 
   @override
   void initState(){
     super.initState();
     trendingMovies = Api().getTrendingMovies();
+    actionMovies = Api().getActionMovies();
+    adventureMovies = Api().getAdventureMovies();
+    comedyMovies = Api().getComedyMovies();
   }
 
   @override
@@ -139,26 +147,22 @@ class _HomeState extends State<Home> {
               ],
             ),
             SizedBox(height: 25.0,),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  for(int i=1; i<=10; i++)
-                  InkWell(
-                    onTap: (){
-                      Navigator.pushNamed(context, "/moviePage");
-                    },
-                    child: Container(
-                      width: 185,
-                      height: 250,
-                      margin: EdgeInsets.only(left: 10),
-                      decoration: BoxDecoration(
-                        color: PaleBlue,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ],
+            SizedBox(
+              child: FutureBuilder(
+                future: actionMovies,
+                builder: (context, snapshot){
+                  if (snapshot.hasError){
+                    return Center(
+                      child: Text(snapshot.error.toString()),
+                    );
+                  }
+                  else if (snapshot.hasData){
+                    return GenreMovies(snapshot: snapshot,);
+                  }
+                  else{
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
               ),
             ),
 
@@ -181,26 +185,22 @@ class _HomeState extends State<Home> {
               ],
             ),
             SizedBox(height: 25.0,),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  for(int i=1; i<=10; i++)
-                    InkWell(
-                      onTap: (){
-                        Navigator.pushNamed(context, "/moviePage");
-                      },
-                      child: Container(
-                        width: 185,
-                        height: 250,
-                        margin: EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                          color: PaleBlue,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                ],
+            SizedBox(
+              child: FutureBuilder(
+                future: comedyMovies,
+                builder: (context, snapshot){
+                  if (snapshot.hasError){
+                    return Center(
+                      child: Text(snapshot.error.toString()),
+                    );
+                  }
+                  else if (snapshot.hasData){
+                    return GenreMovies(snapshot: snapshot,);
+                  }
+                  else{
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
               ),
             ),
 
@@ -223,26 +223,22 @@ class _HomeState extends State<Home> {
               ],
             ),
             SizedBox(height: 25.0,),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  for(int i=1; i<=10; i++)
-                    InkWell(
-                      onTap: (){
-                        Navigator.pushNamed(context, "/moviePage");
-                      },
-                      child: Container(
-                        width: 185,
-                        height: 250,
-                        margin: EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                          color: PaleBlue,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                ],
+            SizedBox(
+              child: FutureBuilder(
+                future: adventureMovies,
+                builder: (context, snapshot){
+                  if (snapshot.hasError){
+                    return Center(
+                      child: Text(snapshot.error.toString()),
+                    );
+                  }
+                  else if (snapshot.hasData){
+                    return GenreMovies(snapshot: snapshot,);
+                  }
+                  else{
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
               ),
             ),
 
