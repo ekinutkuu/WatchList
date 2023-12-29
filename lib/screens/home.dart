@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist/screens/sidebar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import '../api/api.dart';
+import '../models/movie.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,6 +12,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  late Future<List<Movie>> trendingMovies;
+
+  @override
+  void initState(){
+    super.initState();
+    trendingMovies = Api().getTrendingMovies();
+  }
 
   Color DarkBlue = Color(0xFF1a2531);
   Color LightBlue = Color(0xFFbcdef8);
