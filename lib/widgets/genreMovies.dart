@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../constants/apiConstants.dart';
 import '../models/movie.dart';
+import 'package:watchlist/screens/moviePage.dart';
 
 class GenreMovies extends StatelessWidget {
   const GenreMovies({super.key, required this.snapshot});
@@ -17,7 +18,14 @@ class GenreMovies extends StatelessWidget {
           for(int i=1; i<=10; i++)
             InkWell(
               onTap: (){
-                Navigator.pushNamed(context, "/moviePage");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MoviePage(
+                      movie: snapshot.data[i],
+                    ),
+                  ),
+                );
               },
               child: Container(
                 width: 185,

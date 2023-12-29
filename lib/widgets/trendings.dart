@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:watchlist/screens/moviePage.dart';
 import '../constants/colors.dart';
 import '../constants/apiConstants.dart';
 import '../models/movie.dart';
@@ -25,15 +26,27 @@ class Trendings extends StatelessWidget {
           autoPlayAnimationDuration: const Duration(seconds: 2),
         ),
         itemBuilder: (context, itemIndex, pageViewIndex){
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: SizedBox(
-              height: 300.0,
-              width: 200.0,
-              child: Image.network(
-                "${ApiConstants.imagePath}${snapshot.data[itemIndex].posterPath}",
-                filterQuality: FilterQuality.high,
-                fit: BoxFit.cover,
+          return GestureDetector(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MoviePage(
+                    movie: snapshot.data[itemIndex],
+                  ),
+                ),
+              );
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: SizedBox(
+                height: 300.0,
+                width: 200.0,
+                child: Image.network(
+                  "${ApiConstants.imagePath}${snapshot.data[itemIndex].posterPath}",
+                  filterQuality: FilterQuality.high,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           );

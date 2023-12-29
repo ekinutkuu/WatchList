@@ -17,7 +17,7 @@ void main() => runApp(MaterialApp(
     "/": (context) => Home(),
     "/profile": (context) => Profile(),
     "/watchlist": (context) => Watchlist(),
-    "/moviePage": (context) => MoviePage(),
+    //"/moviePage": (context) => MoviePage(),
   },
 
 ));
