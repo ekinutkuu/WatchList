@@ -11,6 +11,10 @@ class MoviePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double deviceWidth = MediaQuery.of(context).size.width;
+    double deviceHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       /* sidebar.dart */
       drawer: SideBar(activePage: ""),
@@ -28,44 +32,82 @@ class MoviePage extends StatelessWidget {
         centerTitle: true,
       ),
 
-      body: Column(
-        children: [
-          SizedBox(height: 20.0,),
-          Container(
-            width: 175.0,
-            height: 250.0,
-            child: Image.network(
-              "${ApiConstants.imagePath}${movie.posterPath}",
-              filterQuality: FilterQuality.high,
-              fit: BoxFit.fill,
+      /* Body */
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 20.0,),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Container(
+                width: 210.0,
+                height: 300.0,
+                child: Image.network(
+                  "${ApiConstants.imagePath}${movie.posterPath}",
+                  filterQuality: FilterQuality.high,
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
-          ),
-          SizedBox(height: 15.0,),
-          Text(movie.title),
-          SizedBox(height: 20.0,),
-          Text("Overview"),
-          SizedBox(height: 15.0,),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10.0,),
-            child: Text(movie.overview),
-          ),
-          SizedBox(height: 15.0,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
+            SizedBox(height: 20.0,),
+            Text(
+              movie.title,
+              style: TextStyle(
+                fontSize: 22.0,
+              ),
+            ),
+            SizedBox(height: 20.0,),
+            Text(
+              "Overview",
+              style: TextStyle(
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 20.0,),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20.0,),
+              child: Text(
+                movie.overview,
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
+              ),
+            ),
+
+
+            SizedBox(height: 10.0,)
+          ],
+        ),
+      ),
+
+      /* Bottom Buttons */
+      bottomNavigationBar: BottomAppBar(
+        height: 70.0,
+        color: Colors.transparent,
+        elevation: 0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: deviceWidth*0.45,
+              height: 40.0,
+              child: ElevatedButton(
                 onPressed: (){},
                 child: Text("Add to list"),
               ),
-              SizedBox(width: 25.0,),
-              ElevatedButton(
+            ),
+            SizedBox(width: deviceWidth*0.05,),
+            Container(
+              width: deviceWidth*0.45,
+              height: 40.0,
+              child: ElevatedButton(
                 onPressed: (){},
                 child: Text("Add to bookmarks"),
               ),
-            ],
-          ),
-
-        ],
+            ),
+          ],
+        ),
       ),
 
     );
