@@ -1,4 +1,8 @@
 lib/api_key2.dart
+.flutter-plugins
+.flutter-plugins-dependencies
+lib/testing/
+lib/watchListFunc
 
 # Miscellaneous
 *.class
