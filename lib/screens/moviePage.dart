@@ -8,6 +8,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:watchlist/screens/watchlist.dart';
 import 'package:watchlist/widgets/alertBox.dart';
+import 'package:watchlist/widgets/selectingStatus.dart';
 
 class MoviePage extends StatefulWidget {
   const MoviePage({super.key, required this.movie});
@@ -48,6 +49,7 @@ class _MoviePageState extends State<MoviePage> {
 
   Future<void> _addMovie(Map<String, dynamic> newMovie) async {
     if (!_movies.any((existingMovie) => existingMovie["title"] == newMovie["title"])) {
+      showStatusDialog(context);
       await _movieBox.add(newMovie);
       print("current movies: ${_movieBox.length}");
       _refreshMovies();

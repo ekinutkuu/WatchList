@@ -22,7 +22,7 @@ class WatchListItems extends StatelessWidget {
           Container(
             width: deviceWidth * 0.2,
             height: 100,
-            color: LightBlue,
+            color: DarkBlue,
             child: Image.network(
               image,
               filterQuality: FilterQuality.high,
