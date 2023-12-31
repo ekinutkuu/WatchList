@@ -7,6 +7,7 @@ import 'package:watchlist/watchListFunc/watchListFunc.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:watchlist/screens/watchlist.dart';
+import 'package:watchlist/widgets/alertBox.dart';
 
 class MoviePage extends StatefulWidget {
   const MoviePage({super.key, required this.movie});
@@ -52,7 +53,8 @@ class _MoviePageState extends State<MoviePage> {
       _refreshMovies();
     }
     else{
-      print("already exist");
+      //print("already exist");
+      showAlertDialog(context, "This movie already exist !");
     }
 
   }
