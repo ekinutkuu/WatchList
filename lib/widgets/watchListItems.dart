@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 class WatchListItems extends StatelessWidget {
-  const WatchListItems({super.key, required this.name, required this.image});
+  const WatchListItems({super.key, required this.title, required this.image});
 
-  final String name;
+  final String title;
   final String image;
 
   @override
@@ -36,7 +36,7 @@ class WatchListItems extends StatelessWidget {
             color: Colors.transparent,
             alignment: Alignment.centerLeft,
             child: Text(
-              name,
+              title,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,

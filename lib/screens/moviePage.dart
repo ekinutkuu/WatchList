@@ -28,26 +28,33 @@ class _MoviePageState extends State<MoviePage> {
   void initState(){
     super.initState();
     _movie = widget.movie;
-    //_refreshMovies();
-    //print(_movies);
+    _refreshMovies();
+    print("Movies: ${_movies}");
+    //print("Movie Box: ${_movieBox}");
   }
 
   void _refreshMovies() {
     final data = _movieBox.keys.map((key) {
       final movie = _movieBox.get(key);
-      return {"key": key, "name": movie["title"], "image": movie["image"]};
+      return {"key": key, "title": movie["title"], "image": movie["image"]};
     }).toList();
 
     setState(() {
       _movies = data.reversed.toList();
-      print(_movies.length);
+      print("movies length: ${_movies.length}");
     });
   }
 
   Future<void> _addMovie(Map<String, dynamic> newMovie) async {
-    await _movieBox.add(newMovie);
-    print("current movies: ${_movieBox.length}");
-    _refreshMovies();
+    if (!_movies.any((existingMovie) => existingMovie["title"] == newMovie["title"])) {
+      await _movieBox.add(newMovie);
+      print("current movies: ${_movieBox.length}");
+      _refreshMovies();
+    }
+    else{
+      print("already exist");
+    }
+
   }
 
   @override

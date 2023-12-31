@@ -24,22 +24,22 @@ class _WatchlistState extends State<Watchlist> {
   void initState(){
     super.initState();
     _refreshMovies();
-    print(_movies);
-    print(_movies[0]);
-    print(_movies[0]["name"]);
-    print(_movies[0]["image"]);
+    //print(_movies);
+    //print(_movies[0]);
+    //print(_movies[0]["title"]);
+    //print(_movies[0]["image"]);
   }
 
   void _refreshMovies() {
     final data = _movieBox.keys.map((key) {
       final movie = _movieBox.get(key);
-      return {"key": key, "name": movie["title"], "image": movie["image"]};
+      return {"key": key, "title": movie["title"], "image": movie["image"]};
     }).toList();
 
     setState(() {
       _movies = data.reversed.toList();
-      print(_movies.length);
-      print(_movies[0]["name"]);
+      print("Movies: ${_movies.length}");
+      //print(_movies[0]["title"]);
     });
   }
 
@@ -81,7 +81,7 @@ class _WatchlistState extends State<Watchlist> {
               Column(
                 children: [
                   WatchListItems(
-                    name: _movies[i]["name"],
+                    title: _movies[i]["title"],
                     image: _movies[i]["image"],
                   ),
                   SizedBox(height: 20.0,),
