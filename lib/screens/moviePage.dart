@@ -29,6 +29,7 @@ class _MoviePageState extends State<MoviePage> {
     super.initState();
     _movie = widget.movie;
     //_refreshMovies();
+    //print(_movies);
   }
 
   void _refreshMovies() {

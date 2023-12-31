@@ -4,6 +4,8 @@ import 'package:watchlist/constants/colors.dart';
 import 'package:watchlist/widgets/watchListItems.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:watchlist/screens/moviePage.dart';
+import 'package:watchlist/models/movie.dart';
 
 
 class Watchlist extends StatefulWidget {
@@ -14,6 +16,33 @@ class Watchlist extends StatefulWidget {
 }
 
 class _WatchlistState extends State<Watchlist> {
+
+  List<Map<String, dynamic>> _movies = [];
+  final _movieBox = Hive.box('movie_box');
+
+  @override
+  void initState(){
+    super.initState();
+    _refreshMovies();
+    print(_movies);
+    print(_movies[0]);
+    print(_movies[0]["name"]);
+    print(_movies[0]["image"]);
+  }
+
+  void _refreshMovies() {
+    final data = _movieBox.keys.map((key) {
+      final movie = _movieBox.get(key);
+      return {"key": key, "name": movie["title"], "image": movie["image"]};
+    }).toList();
+
+    setState(() {
+      _movies = data.reversed.toList();
+      print(_movies.length);
+      print(_movies[0]["name"]);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,10 +77,13 @@ class _WatchlistState extends State<Watchlist> {
               ),
             ),
             SizedBox(height: 20.0,),
-            for(int i=1; i<=10; i++)
+            for(int i=0; i <= _movies.length - 1; i++)
               Column(
                 children: [
-                  WatchListItems(),
+                  WatchListItems(
+                    name: _movies[i]["name"],
+                    image: _movies[i]["image"],
+                  ),
                   SizedBox(height: 20.0,),
                 ],
               ),

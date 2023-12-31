@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 class WatchListItems extends StatelessWidget {
-  const WatchListItems({super.key});
+  const WatchListItems({super.key, required this.name, required this.image});
+
+  final String name;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -15,33 +18,44 @@ class WatchListItems extends StatelessWidget {
       color: PaleBlue,
       child: Row(
         children: [
-          SizedBox(width: deviceWidth*0.03,),
+          SizedBox(width: deviceWidth * 0.03,),
           Container(
-            width: deviceWidth*0.20,
+            width: deviceWidth * 0.2,
             height: 100,
             color: LightBlue,
-            child: Text("Photo", style: TextStyle(color: DarkBlue),),
+            child: Image.network(
+              image,
+              filterQuality: FilterQuality.high,
+              fit: BoxFit.cover,
+            ),
           ),
-          SizedBox(width: deviceWidth*0.03,),
+          SizedBox(width: deviceWidth * 0.04,),
           Container(
-            width: deviceWidth*0.25,
-            height: 30.0,
-            color: LightBlue,
-            child: Text("Name", style: TextStyle(color: DarkBlue),),
+            width: deviceWidth * 0.40,
+            height: 100.0,
+            color: Colors.transparent,
+            alignment: Alignment.centerLeft,
+            child: Text(
+              name,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
           ),
-          SizedBox(width: deviceWidth*0.05,),
+          SizedBox(width: deviceWidth * 0.15,),
           Container(
-            width: deviceWidth*0.23,
-            height: 30.0,
-            color: LightBlue,
-            child: Text("+ 24/36", style: TextStyle(color: DarkBlue),),
-          ),
-          SizedBox(width: deviceWidth*0.05,),
-          Container(
-            width: deviceWidth*0.13,
+            width: deviceWidth * 0.13,
             height: 25.0,
-            color: LightBlue,
-            child: Text("Edit", style: TextStyle(color: DarkBlue),),
+            color: Colors.transparent,
+            alignment: Alignment.center,
+            child: Text(
+              "Edit",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15.0,
+              ),
+            ),
           ),
         ],
       ),
