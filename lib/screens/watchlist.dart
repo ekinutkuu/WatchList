@@ -33,13 +33,29 @@ class _WatchlistState extends State<Watchlist> {
   void _refreshMovies() {
     final data = _movieBox.keys.map((key) {
       final movie = _movieBox.get(key);
-      return {"key": key, "title": movie["title"], "image": movie["image"]};
+      return {
+        "key": key,
+        "title": movie["title"],
+        "image": movie["image"],
+        "status": movie["status"]
+      };
     }).toList();
 
     setState(() {
-      _movies = data.reversed.toList();
-      print("Movies: ${_movies.length}");
-      //print(_movies[0]["title"]);
+      data.sort((a, b){
+        final orderMap = {
+          "Watching": 1,
+          "Completed": 2,
+          "On Hold": 3,
+          "Dropped": 4,
+          "Plan to Watch": 5
+        };
+        final orderA = orderMap[a["status"]] ?? 0;
+        final orderB = orderMap[b["status"]] ?? 0;
+        return orderA.compareTo(orderB);
+      });
+      _movies = data.toList();
+      print("movies length: ${_movies.length}");
     });
   }
 
@@ -83,6 +99,7 @@ class _WatchlistState extends State<Watchlist> {
                   WatchListItems(
                     title: _movies[i]["title"],
                     image: _movies[i]["image"],
+                    status: _movies[i]["status"],
                   ),
                   SizedBox(height: 20.0,),
                 ],

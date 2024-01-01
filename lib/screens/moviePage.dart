@@ -38,19 +38,42 @@ class _MoviePageState extends State<MoviePage> {
   void _refreshMovies() {
     final data = _movieBox.keys.map((key) {
       final movie = _movieBox.get(key);
-      return {"key": key, "title": movie["title"], "image": movie["image"]};
+      return {
+        "key": key,
+        "title": movie["title"],
+        "image": movie["image"],
+        "status": movie["status"]
+      };
     }).toList();
 
     setState(() {
-      _movies = data.reversed.toList();
+      data.sort((a, b){
+        final orderMap = {
+          "Watching": 1,
+          "Completed": 2,
+          "On Hold": 3,
+          "Dropped": 4,
+          "Plan to Watch": 5
+        };
+        final orderA = orderMap[a["status"]] ?? 0;
+        final orderB = orderMap[b["status"]] ?? 0;
+        return orderA.compareTo(orderB);
+      });
+      _movies = data.toList();
       print("movies length: ${_movies.length}");
     });
   }
 
   Future<void> _addMovie(Map<String, dynamic> newMovie) async {
     if (!_movies.any((existingMovie) => existingMovie["title"] == newMovie["title"])) {
-      showStatusDialog(context);
-      await _movieBox.add(newMovie);
+      //await _movieBox.add(newMovie);
+      final selectedStatus = await showStatusDialog(context);
+      print("Status: ${selectedStatus}");
+      await _movieBox.add({
+        "title": newMovie["title"],
+        "image": newMovie["image"],
+        "status": selectedStatus.toString(),
+      });
       print("current movies: ${_movieBox.length}");
       _refreshMovies();
     }
