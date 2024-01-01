@@ -24,10 +24,6 @@ class _WatchlistState extends State<Watchlist> {
   void initState(){
     super.initState();
     _refreshMovies();
-    //print(_movies);
-    //print(_movies[0]);
-    //print(_movies[0]["title"]);
-    //print(_movies[0]["image"]);
   }
 
   void _refreshMovies() {
@@ -61,6 +57,10 @@ class _WatchlistState extends State<Watchlist> {
 
   @override
   Widget build(BuildContext context) {
+
+    double deviceWidth = MediaQuery.of(context).size.width;
+    double deviceHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       /* sidebar.dart */
       drawer: SideBar(activePage: "Watchlist"),
@@ -83,25 +83,47 @@ class _WatchlistState extends State<Watchlist> {
         child: Column(
           children: [
             SizedBox(height: 20.0,),
-            Text(
-              "Viewing Your Movie List",
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.5,
-                color: LightBlue,
-              ),
-            ),
-            SizedBox(height: 20.0,),
-            for(int i=0; i <= _movies.length - 1; i++)
-              Column(
+            _movies.isEmpty
+              /* If watch list is empty */
+              ? Container(
+              width: deviceWidth,
+              height: deviceHeight - 165.0,
+              color: Colors.transparent,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  WatchListItems(
-                    title: _movies[i]["title"],
-                    image: _movies[i]["image"],
-                    status: _movies[i]["status"],
+                  Image.asset("assets/empty.png", width: 90.0, height: 90.0,),
+                  SizedBox(height: 30.0,),
+                  Text("There is nothing to show", style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),),
+                  SizedBox(height: 20.0,),
+                  Text("Add some movie to track", style: TextStyle(fontSize: 23.0),),
+                ],
+              ),
+              )
+              /* If watch list isn't empty */
+              : Column(
+                children: [
+                  Text(
+                    "Viewing Your Movie List",
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                      color: LightBlue,
+                    ),
                   ),
                   SizedBox(height: 20.0,),
+                  for (int i = 0; i <= _movies.length - 1; i++)
+                    Column(
+                      children: [
+                        WatchListItems(
+                          title: _movies[i]["title"],
+                          image: _movies[i]["image"],
+                          status: _movies[i]["status"],
+                        ),
+                        SizedBox(height: 20.0,),
+                      ],
+                    ),
                 ],
               ),
           ],
