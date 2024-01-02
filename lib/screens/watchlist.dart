@@ -117,6 +117,7 @@ class _WatchlistState extends State<Watchlist> {
                     Column(
                       children: [
                         WatchListItems(
+                          movieKey: _movies[i]["key"],
                           title: _movies[i]["title"],
                           image: _movies[i]["image"],
                           status: _movies[i]["status"],
