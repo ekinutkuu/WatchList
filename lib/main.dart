@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:watchlist/screens/home.dart';
 import 'package:watchlist/screens/profile.dart';
 import 'package:watchlist/screens/watchlist.dart';
+import 'package:watchlist/screens/bookmarks.dart';
 import 'package:watchlist/screens/moviePage.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -26,6 +27,7 @@ void main() async {
       "/": (context) => Home(),
       "/profile": (context) => Profile(),
       "/watchlist": (context) => Watchlist(),
+      "/bookmarks": (context) => Bookmarks(),
       //"/moviePage": (context) => MoviePage(),
     },
 

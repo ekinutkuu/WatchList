@@ -74,7 +74,13 @@ class SideBar extends StatelessWidget {
             leading: Icon(Icons.bookmark),
             textColor: LightBlue,
             iconColor: LightBlue,
-            onTap: (){},
+            tileColor: activePage == "Bookmarks" ? Color(0xFF203745) : null,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            onTap: (){
+              Navigator.pushNamed(context, "/bookmarks");
+            },
           ),
           SizedBox(height: 10.0,),
           ListTile(
