@@ -32,6 +32,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+
+    double deviceWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       /* sidebar.dart */
       drawer: SideBar(activePage: "Home"),
@@ -92,21 +95,23 @@ class _HomeState extends State<Home> {
 
             /* Trendings */
             SizedBox(height: 25.0),
-            Row(
-              children: [
-                SizedBox(width: 25.0,),
-                Expanded(
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: deviceWidth * 0.65,
+                height: 40.0,
+                decoration: BoxDecoration(
+                  color: GenreContainer,
+                  borderRadius: BorderRadius.circular(18.0),
+                ),
+                child: Align(
+                  alignment: Alignment.center,
                   child: Text("Trendings",
-                    style: TextStyle(fontSize: 20.0),
-                    textAlign: TextAlign.left),
+                    style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left
+                  ),
                 ),
-                Expanded(
-                  child: Text("See More...",
-                    style: TextStyle(fontSize: 20.0),
-                    textAlign: TextAlign.right),
-                ),
-                SizedBox(width: 25.0,),
-              ],
+              ),
             ),
             SizedBox(height: 25.0,),
             SizedBox(
@@ -129,121 +134,181 @@ class _HomeState extends State<Home> {
             ),
 
             /* Action Movies */
-            SizedBox(height: 25.0,),
-            Row(
-              children: [
-                SizedBox(width: 25.0,),
-                Expanded(
-                  child: Text("Action Movies",
-                    style: TextStyle(fontSize: 18.0),
-                    textAlign: TextAlign.left),
-                ),
-                Expanded(
-                  child: Text("See More...",
-                    style: TextStyle(fontSize: 18.0),
-                    textAlign: TextAlign.right),
-                ),
-                SizedBox(width: 25.0,),
-              ],
-            ),
-            SizedBox(height: 25.0,),
-            SizedBox(
-              child: FutureBuilder(
-                future: actionMovies,
-                builder: (context, snapshot){
-                  if (snapshot.hasError){
-                    return Center(
-                      child: Text(snapshot.error.toString()),
-                    );
-                  }
-                  else if (snapshot.hasData){
-                    return GenreMovies(snapshot: snapshot,);
-                  }
-                  else{
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                },
+            SizedBox(height: 50.0,),
+            Container(
+              color: GenreContainer,
+              height: 370.0,
+              child: Column(
+                children: [
+                  SizedBox(height: 25.0,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(width: 25.0,),
+                      Text(
+                        "Action Movies",
+                        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left
+                      ),
+                      SizedBox(width: 80.0,),
+                      Container(
+                        width: 135.0,
+                        height: 35.0,
+                        child: ElevatedButton(
+                          onPressed: (){},
+                          child: Text("See More...",
+                            style: TextStyle(fontSize: 13.0),
+                            textAlign: TextAlign.right
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: DarkBlue,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 25.0,),
+                    ],
+                  ),
+                  SizedBox(height: 25.0,),
+                  SizedBox(
+                    child: FutureBuilder(
+                      future: actionMovies,
+                      builder: (context, snapshot){
+                        if (snapshot.hasError){
+                          return Center(
+                            child: Text(snapshot.error.toString()),
+                          );
+                        }
+                        else if (snapshot.hasData){
+                          return GenreMovies(snapshot: snapshot,);
+                        }
+                        else{
+                          return const Center(child: CircularProgressIndicator());
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
 
             /* Comedy Movies */
-            SizedBox(height: 25.0,),
-            Row(
-              children: [
-                SizedBox(width: 25.0,),
-                Expanded(
-                  child: Text("Comedy Movies",
-                      style: TextStyle(fontSize: 18.0),
-                      textAlign: TextAlign.left),
-                ),
-                Expanded(
-                  child: Text("See More...",
-                      style: TextStyle(fontSize: 18.0),
-                      textAlign: TextAlign.right),
-                ),
-                SizedBox(width: 25.0,),
-              ],
-            ),
-            SizedBox(height: 25.0,),
-            SizedBox(
-              child: FutureBuilder(
-                future: comedyMovies,
-                builder: (context, snapshot){
-                  if (snapshot.hasError){
-                    return Center(
-                      child: Text(snapshot.error.toString()),
-                    );
-                  }
-                  else if (snapshot.hasData){
-                    return GenreMovies(snapshot: snapshot,);
-                  }
-                  else{
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                },
+            SizedBox(height: 35.0,),
+            Container(
+              color: GenreContainer,
+              height: 370.0,
+              child: Column(
+                children: [
+                  SizedBox(height: 25.0,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(width: 25.0,),
+                      Text(
+                        "Comedy Movies",
+                        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left
+                      ),
+                      SizedBox(width: 80.0,),
+                      Container(
+                        width: 135.0,
+                        height: 35.0,
+                        child: ElevatedButton(
+                          onPressed: (){},
+                          child: Text("See More...",
+                            style: TextStyle(fontSize: 13.0),
+                            textAlign: TextAlign.right
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: DarkBlue,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 25.0,),
+                    ],
+                  ),
+                  SizedBox(height: 25.0,),
+                  SizedBox(
+                    child: FutureBuilder(
+                      future: comedyMovies,
+                      builder: (context, snapshot){
+                        if (snapshot.hasError){
+                          return Center(
+                            child: Text(snapshot.error.toString()),
+                          );
+                        }
+                        else if (snapshot.hasData){
+                          return GenreMovies(snapshot: snapshot,);
+                        }
+                        else{
+                          return const Center(child: CircularProgressIndicator());
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
 
             /* Adventure Movies */
-            SizedBox(height: 25.0,),
-            Row(
-              children: [
-                SizedBox(width: 25.0,),
-                Expanded(
-                  child: Text("Adventure Movies",
-                      style: TextStyle(fontSize: 18.0),
-                      textAlign: TextAlign.left),
-                ),
-                Expanded(
-                  child: Text("See More...",
-                      style: TextStyle(fontSize: 18.0),
-                      textAlign: TextAlign.right),
-                ),
-                SizedBox(width: 25.0,),
-              ],
-            ),
-            SizedBox(height: 25.0,),
-            SizedBox(
-              child: FutureBuilder(
-                future: adventureMovies,
-                builder: (context, snapshot){
-                  if (snapshot.hasError){
-                    return Center(
-                      child: Text(snapshot.error.toString()),
-                    );
-                  }
-                  else if (snapshot.hasData){
-                    return GenreMovies(snapshot: snapshot,);
-                  }
-                  else{
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                },
+            SizedBox(height: 35.0,),
+            Container(
+              color: GenreContainer,
+              height: 370.0,
+              child: Column(
+                children: [
+                  SizedBox(height: 25.0,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(width: 25.0,),
+                      Text(
+                        "Adventure Movies",
+                        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left
+                      ),
+                      SizedBox(width: 60.0,),
+                      Container(
+                        width: 135.0,
+                        height: 35.0,
+                        child: ElevatedButton(
+                          onPressed: (){},
+                          child: Text("See More...",
+                            style: TextStyle(fontSize: 13.0),
+                            textAlign: TextAlign.right
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: DarkBlue,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 25.0,),
+                    ],
+                  ),
+                  SizedBox(height: 25.0,),
+                  SizedBox(
+                    child: FutureBuilder(
+                      future: adventureMovies,
+                      builder: (context, snapshot){
+                        if (snapshot.hasError){
+                          return Center(
+                            child: Text(snapshot.error.toString()),
+                          );
+                        }
+                        else if (snapshot.hasData){
+                          return GenreMovies(snapshot: snapshot,);
+                        }
+                        else{
+                          return const Center(child: CircularProgressIndicator());
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
 
 
-            SizedBox(height: 25.0,),
+            SizedBox(height: 35.0,),
           ],
         ),
       ),
