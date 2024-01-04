@@ -13,6 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox('movie_box');
+  await Hive.openBox('bookmarks_box');
 
   runApp(MaterialApp(
 

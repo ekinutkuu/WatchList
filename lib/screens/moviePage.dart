@@ -25,13 +25,17 @@ class _MoviePageState extends State<MoviePage> {
 
   List<Map<String, dynamic>> _movies = [];
   final _movieBox = Hive.box('movie_box');
+  List<Map<String, dynamic>> _bookmarks = [];
+  final _bookmarksBox = Hive.box('bookmarks_box');
 
   @override
   void initState(){
     super.initState();
     _movie = widget.movie;
     _refreshMovies();
-    print("Movies: ${_movies}");
+    _refreshBookmarks();
+    print("Bookmarks: ${_bookmarks}");
+    //print("Movies: ${_movies}");
     //print("Movie Box: ${_movieBox}");
   }
 
@@ -60,7 +64,7 @@ class _MoviePageState extends State<MoviePage> {
         return orderA.compareTo(orderB);
       });
       _movies = data.toList();
-      print("movies length: ${_movies.length}");
+      //print("movies length: ${_movies.length}");
     });
   }
 
@@ -81,7 +85,33 @@ class _MoviePageState extends State<MoviePage> {
       //print("already exist");
       showAlertDialog(context, "This movie already exist !");
     }
+  }
 
+  void _refreshBookmarks() {
+    final data = _bookmarksBox.keys.map((key) {
+      final movie = _bookmarksBox.get(key);
+      return {"key": key, "title": movie["title"], "image": movie["image"]};
+    }).toList();
+
+    setState(() {
+      _bookmarks = data.reversed.toList();
+      print("movies length: ${_bookmarks.length}");
+    });
+  }
+
+  Future<void> _addBookmarks(Map<String, dynamic> newMovie) async {
+    if (!_bookmarks.any((existingMovie) => existingMovie["title"] == newMovie["title"])) {
+      await _bookmarksBox.add({
+        "title": newMovie["title"],
+        "image": newMovie["image"],
+      });
+      print("current movies: ${_bookmarksBox.length}");
+      _refreshMovies();
+    }
+    else{
+      //print("already exist");
+      showAlertDialog(context, "This movie already exist !");
+    }
   }
 
   @override
@@ -182,7 +212,12 @@ class _MoviePageState extends State<MoviePage> {
               width: deviceWidth*0.45,
               height: 40.0,
               child: ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  _addBookmarks({
+                    "title": _movie.title,
+                    "image": ApiConstants.imagePath+_movie.posterPath,
+                  });
+                },
                 child: Text("Add to bookmarks"),
               ),
             ),
