@@ -5,6 +5,7 @@ import 'package:watchlist/widgets/trendings.dart';
 import 'package:watchlist/widgets/genreMovies.dart';
 import '../api/api.dart';
 import '../models/movie.dart';
+import 'package:watchlist/screens/seeMoreGenreMovies.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -155,7 +156,14 @@ class _HomeState extends State<Home> {
                         width: 135.0,
                         height: 35.0,
                         child: ElevatedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SeeMoreGenreMovies(genre: "Action"),
+                              ),
+                            );
+                          },
                           child: Text("See More...",
                             style: TextStyle(fontSize: 13.0),
                             textAlign: TextAlign.right
@@ -213,7 +221,14 @@ class _HomeState extends State<Home> {
                         width: 135.0,
                         height: 35.0,
                         child: ElevatedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SeeMoreGenreMovies(genre: "Comedy"),
+                              ),
+                            );
+                          },
                           child: Text("See More...",
                             style: TextStyle(fontSize: 13.0),
                             textAlign: TextAlign.right
@@ -271,7 +286,14 @@ class _HomeState extends State<Home> {
                         width: 135.0,
                         height: 35.0,
                         child: ElevatedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SeeMoreGenreMovies(genre: "Adventure"),
+                              ),
+                            );
+                          },
                           child: Text("See More...",
                             style: TextStyle(fontSize: 13.0),
                             textAlign: TextAlign.right
