@@ -3,6 +3,7 @@ lib/api_key2.dart
 .flutter-plugins-dependencies
 lib/testing/
 lib/watchListFunc
+lib/constants/screenSize.dart
 
 # Miscellaneous
 *.class

@@ -6,6 +6,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:watchlist/screens/moviePage.dart';
 import 'package:watchlist/models/movie.dart';
+import 'package:watchlist/widgets/empty.dart';
 
 
 class Watchlist extends StatefulWidget {
@@ -79,58 +80,39 @@ class _WatchlistState extends State<Watchlist> {
       ),
 
       /* Body */
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 20.0,),
-            _movies.isEmpty
-              /* If watch list is empty */
-              ? Container(
-              width: deviceWidth,
-              height: deviceHeight - 165.0,
-              color: Colors.transparent,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/empty.png", width: 90.0, height: 90.0,),
-                  SizedBox(height: 30.0,),
-                  Text("There is nothing to show", style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),),
-                  SizedBox(height: 20.0,),
-                  Text("Add some movie to track", style: TextStyle(fontSize: 23.0),),
-                ],
+      body: _movies.isEmpty
+      /* If watch list is empty */
+      ? Empty()
+      /* If watch list isn't empty */
+      : SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 20.0,),
+              Text(
+                "Viewing Your Movie List",
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.5,
+                  color: LightBlue,
+                ),
               ),
-              )
-              /* If watch list isn't empty */
-              : Column(
-                children: [
-                  Text(
-                    "Viewing Your Movie List",
-                    style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.5,
-                      color: LightBlue,
+              SizedBox(height: 20.0,),
+              for (int i = 0; i <= _movies.length - 1; i++)
+                Column(
+                  children: [
+                    WatchListItems(
+                      movieKey: _movies[i]["key"],
+                      title: _movies[i]["title"],
+                      image: _movies[i]["image"],
+                      status: _movies[i]["status"],
                     ),
-                  ),
-                  SizedBox(height: 20.0,),
-                  for (int i = 0; i <= _movies.length - 1; i++)
-                    Column(
-                      children: [
-                        WatchListItems(
-                          movieKey: _movies[i]["key"],
-                          title: _movies[i]["title"],
-                          image: _movies[i]["image"],
-                          status: _movies[i]["status"],
-                        ),
-                        SizedBox(height: 20.0,),
-                      ],
-                    ),
-                ],
-              ),
-          ],
+                    SizedBox(height: 20.0,),
+                  ],
+                ),
+            ],
+          ),
         ),
-      ),
-
     );
   }
 }

@@ -140,7 +140,9 @@ class _ProfileState extends State<Profile> {
                 width: 150.0,
                 height: 40.0,
                 child: ElevatedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.pushNamed(context, "/bookmarks");
+                  },
                   child: Text("Bookmarks"),
                 ),
               ),

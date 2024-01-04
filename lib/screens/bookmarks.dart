@@ -4,6 +4,7 @@ import 'package:watchlist/constants/colors.dart';
 import 'package:watchlist/widgets/bookmarksItems.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:watchlist/widgets/empty.dart';
 
 class Bookmarks extends StatefulWidget {
   const Bookmarks({super.key});
@@ -59,7 +60,11 @@ class _BookmarksState extends State<Bookmarks> {
       ),
 
       /* Body */
-      body: ListView.builder(
+      body: _bookmarks.isEmpty
+      /* If bookmarks is empty */
+      ? Empty()
+      /* If bookmarks isn't empty */
+      : ListView.builder(
         itemCount: (_bookmarks.length / 2).ceil(),
         padding: EdgeInsets.all(10),
         itemBuilder: (BuildContext context, int index){

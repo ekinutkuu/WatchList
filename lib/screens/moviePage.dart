@@ -95,7 +95,7 @@ class _MoviePageState extends State<MoviePage> {
 
     setState(() {
       _bookmarks = data.reversed.toList();
-      print("movies length: ${_bookmarks.length}");
+      print("bookmarks length: ${_bookmarks.length}");
     });
   }
 
@@ -105,8 +105,8 @@ class _MoviePageState extends State<MoviePage> {
         "title": newMovie["title"],
         "image": newMovie["image"],
       });
-      print("current movies: ${_bookmarksBox.length}");
-      _refreshMovies();
+      print("current bookmarks: ${_bookmarksBox.length}");
+      _refreshBookmarks();
     }
     else{
       //print("already exist");

@@ -24,12 +24,16 @@ class BookmarksItems extends StatelessWidget {
       child: Stack(
         children: [
           /* Image */
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
-            child: Image.network(
-              image,
-              filterQuality: FilterQuality.high,
-              fit: BoxFit.cover,
+          SizedBox(
+            width: imageWidth,
+            height: 277.0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.network(
+                image,
+                filterQuality: FilterQuality.high,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           /* Black filter for image */
