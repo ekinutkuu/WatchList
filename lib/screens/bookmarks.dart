@@ -31,12 +31,16 @@ class _BookmarksState extends State<Bookmarks> {
 
     setState(() {
       _bookmarks = data.reversed.toList();
-      print("movies length: ${_bookmarks.length}");
+      print("bookmarks length: ${_bookmarks.length}");
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
+    double deviceWidth = MediaQuery.of(context).size.width;
+    double deviceHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       /* sidebar.dart */
       drawer: SideBar(activePage: "Bookmarks"),
@@ -56,18 +60,34 @@ class _BookmarksState extends State<Bookmarks> {
 
       /* Body */
       body: ListView.builder(
-          itemCount: 5,
-          padding: EdgeInsets.all(10),
-          itemBuilder: (BuildContext context, int index){
-            return Column(
-              children: [
-                BookmarksItems(),
-                SizedBox(height: 20.0,),
-              ],
-            );
-          }
-        ),
-
+        itemCount: (_bookmarks.length / 2).ceil(),
+        padding: EdgeInsets.all(10),
+        itemBuilder: (BuildContext context, int index){
+          int leftIndex = index * 2;
+          int rightIndex = leftIndex + 1;
+          return Column(
+            children: [
+              SizedBox(height: 15.0,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BookmarksItems(
+                    title: _bookmarks[leftIndex]["title"],
+                    image: _bookmarks[leftIndex]["image"],
+                  ),
+                  SizedBox(width: deviceWidth * 0.05,),
+                  if (rightIndex < _bookmarks.length)
+                    BookmarksItems(
+                      title: _bookmarks[rightIndex]["title"],
+                      image: _bookmarks[rightIndex]["image"],
+                    ),
+                ],
+              ),
+              SizedBox(height: deviceHeight * 0.02,),
+            ],
+          );
+        }
+      ),
     );
   }
 }
