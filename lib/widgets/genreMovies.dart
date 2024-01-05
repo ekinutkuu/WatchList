@@ -38,14 +38,18 @@ class GenreMovies extends StatelessWidget {
                 child: SizedBox(
                   height: 300.0,
                   width: 200.0,
-                  child: Image.network(
-                    "${ApiConstants.imagePath}${snapshot.data[i].posterPath}",
-                    filterQuality: FilterQuality.high,
-                    fit: BoxFit.cover,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: Image.network(
+                      "${ApiConstants.imagePath}${snapshot.data[i].posterPath}",
+                      filterQuality: FilterQuality.high,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
             ),
+          SizedBox(width: 10.0,),
         ],
       ),
     );

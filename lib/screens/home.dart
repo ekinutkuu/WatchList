@@ -145,13 +145,13 @@ class _HomeState extends State<Home> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(width: 25.0,),
+                      SizedBox(width: deviceWidth * 0.04,),
                       Text(
                         "Action Movies",
                         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left
                       ),
-                      SizedBox(width: 80.0,),
+                      SizedBox(width: deviceWidth * 0.22,),
                       Container(
                         width: 135.0,
                         height: 35.0,
@@ -173,7 +173,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 25.0,),
+                      SizedBox(width: deviceWidth * 0.04,),
                     ],
                   ),
                   SizedBox(height: 25.0,),
@@ -210,13 +210,13 @@ class _HomeState extends State<Home> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(width: 25.0,),
+                      SizedBox(width: deviceWidth * 0.04,),
                       Text(
                         "Comedy Movies",
                         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left
                       ),
-                      SizedBox(width: 80.0,),
+                      SizedBox(width: deviceWidth * 0.22,),
                       Container(
                         width: 135.0,
                         height: 35.0,
@@ -238,7 +238,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 25.0,),
+                      SizedBox(width: deviceWidth * 0.04,),
                     ],
                   ),
                   SizedBox(height: 25.0,),
@@ -275,13 +275,13 @@ class _HomeState extends State<Home> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(width: 25.0,),
+                      SizedBox(width: deviceWidth * 0.04,),
                       Text(
                         "Adventure Movies",
                         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left
                       ),
-                      SizedBox(width: 60.0,),
+                      SizedBox(width: deviceWidth * 0.19,),
                       Container(
                         width: 135.0,
                         height: 35.0,
@@ -303,7 +303,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 25.0,),
+                      SizedBox(width: deviceWidth * 0.04,),
                     ],
                   ),
                   SizedBox(height: 25.0,),

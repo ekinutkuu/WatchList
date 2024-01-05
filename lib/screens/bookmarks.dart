@@ -64,34 +64,61 @@ class _BookmarksState extends State<Bookmarks> {
       /* If bookmarks is empty */
       ? Empty()
       /* If bookmarks isn't empty */
-      : ListView.builder(
-        itemCount: (_bookmarks.length / 2).ceil(),
-        padding: EdgeInsets.all(10),
-        itemBuilder: (BuildContext context, int index){
-          int leftIndex = index * 2;
-          int rightIndex = leftIndex + 1;
-          return Column(
-            children: [
-              SizedBox(height: 15.0,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BookmarksItems(
-                    title: _bookmarks[leftIndex]["title"],
-                    image: _bookmarks[leftIndex]["image"],
-                  ),
-                  SizedBox(width: deviceWidth * 0.05,),
-                  if (rightIndex < _bookmarks.length)
-                    BookmarksItems(
-                      title: _bookmarks[rightIndex]["title"],
-                      image: _bookmarks[rightIndex]["image"],
-                    ),
-                ],
+      : Column(
+        children: [
+          SizedBox(height: 15.0,),
+          Container(
+            width: deviceWidth * 0.65,
+            height: 45.0,
+            decoration: BoxDecoration(
+              color: GenreContainer,
+              borderRadius: BorderRadius.circular(18.0),
+            ),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Bookmarks",
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                ),
               ),
-              SizedBox(height: deviceHeight * 0.02,),
-            ],
-          );
-        }
+            ),
+          ),
+          SizedBox(height: 15.0,),
+          Expanded(
+            child: ListView.builder(
+              itemCount: (_bookmarks.length / 2).ceil(),
+              padding: EdgeInsets.all(10),
+              itemBuilder: (BuildContext context, int index){
+                int leftIndex = index * 2;
+                int rightIndex = leftIndex + 1;
+                return Column(
+                  children: [
+                    SizedBox(height: 5.0,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        BookmarksItems(
+                          title: _bookmarks[leftIndex]["title"],
+                          image: _bookmarks[leftIndex]["image"],
+                        ),
+                        SizedBox(width: deviceWidth * 0.05,),
+                        if (rightIndex < _bookmarks.length)
+                          BookmarksItems(
+                            title: _bookmarks[rightIndex]["title"],
+                            image: _bookmarks[rightIndex]["image"],
+                          ),
+                      ],
+                    ),
+                    SizedBox(height: deviceHeight * 0.02,),
+                  ],
+                );
+              }
+            ),
+          ),
+        ],
       ),
     );
   }
