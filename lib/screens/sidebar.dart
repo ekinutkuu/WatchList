@@ -20,76 +20,81 @@ class SideBar extends StatelessWidget {
       ),
       child: ListView(
         children: [
-          SizedBox(height: 50.0,),
+          SizedBox(height: 70.0,),
           Image.asset(
             "assets/logo.png",
             fit: BoxFit.cover,
             height: 50.0,
             filterQuality: FilterQuality.high,),
-          SizedBox(height: 50.0,),
-          ListTile(
-            title: const Text("Home"),
-            leading: Icon(Icons.home),
-            textColor: LightBlue,
-            iconColor: LightBlue,
-            tileColor: activePage == "Home" ? Color(0xFF203745) : null,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+          SizedBox(height: 60.0,),
+          Container(
+            margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+            child: ListTile(
+              title: const Text("Home"),
+              leading: Icon(Icons.home),
+              textColor: LightBlue,
+              iconColor: LightBlue,
+              tileColor: activePage == "Home" ? Color(0xFF203745) : null,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              onTap: (){
+                Navigator.pushNamed(context, "/");
+              },
             ),
-            onTap: (){
-              Navigator.pushNamed(context, "/");
-            },
           ),
           SizedBox(height: 10.0,),
-          ListTile(
-            title: const Text("Profile"),
-            leading: Icon(Icons.person),
-            textColor: LightBlue,
-            iconColor: LightBlue,
-            tileColor: activePage == "Profile" ? Color(0xFF203745) : null,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+          Container(
+            margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+            child: ListTile(
+              title: const Text("Profile"),
+              leading: Icon(Icons.person),
+              textColor: LightBlue,
+              iconColor: LightBlue,
+              tileColor: activePage == "Profile" ? Color(0xFF203745) : null,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              onTap: (){
+                Navigator.pushNamed(context, "/profile");
+              },
             ),
-            onTap: (){
-              Navigator.pushNamed(context, "/profile");
-            },
           ),
           SizedBox(height: 10.0,),
-          ListTile(
-            title: const Text("Watchlist"),
-            leading: Icon(Icons.list),
-            textColor: LightBlue,
-            iconColor: LightBlue,
-            tileColor: activePage == "Watchlist" ? Color(0xFF203745) : null,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+          Container(
+            margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+            child: ListTile(
+              title: const Text("Watchlist"),
+              leading: Icon(Icons.list),
+              textColor: LightBlue,
+              iconColor: LightBlue,
+              tileColor: activePage == "Watchlist" ? Color(0xFF203745) : null,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              onTap: (){
+                Navigator.pushNamed(context, "/watchlist");
+              },
             ),
-            onTap: (){
-              Navigator.pushNamed(context, "/watchlist");
-            },
           ),
           SizedBox(height: 10.0,),
-          ListTile(
-            title: const Text("Bookmarks"),
-            leading: Icon(Icons.bookmark),
-            textColor: LightBlue,
-            iconColor: LightBlue,
-            tileColor: activePage == "Bookmarks" ? Color(0xFF203745) : null,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+          Container(
+            margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+            child: ListTile(
+              title: const Text("Bookmarks"),
+              leading: Icon(Icons.bookmark),
+              textColor: LightBlue,
+              iconColor: LightBlue,
+              tileColor: activePage == "Bookmarks" ? Color(0xFF203745) : null,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              onTap: (){
+                Navigator.pushNamed(context, "/bookmarks");
+              },
             ),
-            onTap: (){
-              Navigator.pushNamed(context, "/bookmarks");
-            },
           ),
           SizedBox(height: 10.0,),
-          ListTile(
-            title: const Text("History"),
-            leading: Icon(Icons.history),
-            textColor: LightBlue,
-            iconColor: LightBlue,
-            onTap: (){},
-          ),
         ],
       ),
     );
