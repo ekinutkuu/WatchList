@@ -9,6 +9,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:watchlist/screens/watchlist.dart';
 import 'package:watchlist/widgets/alertBox.dart';
 import 'package:watchlist/widgets/selectingStatus.dart';
+import 'package:watchlist/widgets/pageTitle.dart';
 
 class MoviePage extends StatefulWidget {
   const MoviePage({super.key, required this.movie});
@@ -142,6 +143,8 @@ class _MoviePageState extends State<MoviePage> {
         child: Column(
           children: [
             SizedBox(height: 20.0,),
+            PageTitle(text: _movie.title, fontSize: 25, color: PaleBlue2,),
+            SizedBox(height: 20.0,),
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Container(
@@ -155,27 +158,36 @@ class _MoviePageState extends State<MoviePage> {
               ),
             ),
             SizedBox(height: 20.0,),
-            Text(
-              _movie.title,
-              style: TextStyle(
-                fontSize: 22.0,
-              ),
-            ),
-            SizedBox(height: 20.0,),
-            Text(
-              "Overview",
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 20.0,),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.0,),
-              child: Text(
-                _movie.overview,
-                style: TextStyle(
-                  fontSize: 16.0,
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: deviceWidth - 20.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: PaleBlue2,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(height: 20.0,),
+                    Text(
+                      "Overview",
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 20.0,),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 20.0,),
+                      child: Text(
+                        _movie.overview,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 25.0,),
+                  ],
                 ),
               ),
             ),

@@ -7,6 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:watchlist/screens/moviePage.dart';
 import 'package:watchlist/models/movie.dart';
 import 'package:watchlist/widgets/empty.dart';
+import 'package:watchlist/widgets/pageTitle.dart';
 
 
 class Watchlist extends StatefulWidget {
@@ -87,17 +88,9 @@ class _WatchlistState extends State<Watchlist> {
       : SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 20.0,),
-              Text(
-                "Viewing Your Movie List",
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.5,
-                  color: LightBlue,
-                ),
-              ),
-              SizedBox(height: 20.0,),
+              SizedBox(height: 25.0,),
+              PageTitle(text: "Viewing Your Movie List", fontSize: 28, color: WatchListTitleBackground,),
+              SizedBox(height: 30.0,),
               for (int i = 0; i <= _movies.length - 1; i++)
                 Column(
                   children: [

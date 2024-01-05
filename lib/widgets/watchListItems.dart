@@ -84,7 +84,7 @@ class _WatchListItemsState extends State<WatchListItems> {
     return Container(
       width: deviceWidth,
       height: 150.0,
-      color: PaleBlue,
+      color: PaleBlue2,
       child: Row(
         children: [
           SizedBox(width: deviceWidth * 0.017,),
