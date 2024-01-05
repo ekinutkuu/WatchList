@@ -4,6 +4,7 @@ lib/api_key2.dart
 lib/testing/
 lib/watchListFunc
 lib/constants/screenSize.dart
+lib/models/bookmarksMovie.dart
 
 # Miscellaneous
 *.class

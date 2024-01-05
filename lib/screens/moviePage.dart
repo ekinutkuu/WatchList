@@ -91,7 +91,7 @@ class _MoviePageState extends State<MoviePage> {
   void _refreshBookmarks() {
     final data = _bookmarksBox.keys.map((key) {
       final movie = _bookmarksBox.get(key);
-      return {"key": key, "title": movie["title"], "image": movie["image"]};
+      return {"key": key, "title": movie["title"], "image": movie["image"], "overview": movie["overview"]};
     }).toList();
 
     setState(() {
@@ -105,6 +105,7 @@ class _MoviePageState extends State<MoviePage> {
       await _bookmarksBox.add({
         "title": newMovie["title"],
         "image": newMovie["image"],
+        "overview": newMovie["overview"],
       });
       print("current bookmarks: ${_bookmarksBox.length}");
       _refreshBookmarks();
@@ -228,6 +229,7 @@ class _MoviePageState extends State<MoviePage> {
                   _addBookmarks({
                     "title": _movie.title,
                     "image": ApiConstants.imagePath+_movie.posterPath,
+                    "overview": _movie.overview,
                   });
                 },
                 child: Text("Add to bookmarks"),
