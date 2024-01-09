@@ -3,7 +3,6 @@ import 'package:watchlist/constants/apiConstants.dart';
 import 'package:watchlist/screens/sidebar.dart';
 import 'package:watchlist/constants/colors.dart';
 import 'package:watchlist/models/movie.dart';
-import 'package:watchlist/watchListFunc/watchListFunc.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:watchlist/screens/watchlist.dart';
@@ -35,9 +34,6 @@ class _MoviePageState extends State<MoviePage> {
     _movie = widget.movie;
     _refreshMovies();
     _refreshBookmarks();
-    print("Bookmarks: ${_bookmarks}");
-    //print("Movies: ${_movies}");
-    //print("Movie Box: ${_movieBox}");
   }
 
   void _refreshMovies() {
@@ -65,7 +61,6 @@ class _MoviePageState extends State<MoviePage> {
         return orderA.compareTo(orderB);
       });
       _movies = data.toList();
-      //print("movies length: ${_movies.length}");
     });
   }
 
@@ -73,13 +68,12 @@ class _MoviePageState extends State<MoviePage> {
     if (!_movies.any((existingMovie) => existingMovie["title"] == newMovie["title"])) {
       //await _movieBox.add(newMovie);
       final selectedStatus = await showStatusDialog(context);
-      print("Status: ${selectedStatus}");
       await _movieBox.add({
         "title": newMovie["title"],
         "image": newMovie["image"],
         "status": selectedStatus.toString(),
       });
-      print("current movies: ${_movieBox.length}");
+      showAlertDialog(context, "Saved to watchlist");
       _refreshMovies();
     }
     else{
@@ -96,7 +90,6 @@ class _MoviePageState extends State<MoviePage> {
 
     setState(() {
       _bookmarks = data.reversed.toList();
-      print("bookmarks length: ${_bookmarks.length}");
     });
   }
 
@@ -107,7 +100,7 @@ class _MoviePageState extends State<MoviePage> {
         "image": newMovie["image"],
         "overview": newMovie["overview"],
       });
-      print("current bookmarks: ${_bookmarksBox.length}");
+      showAlertDialog(context, "Saved to bookmarks");
       _refreshBookmarks();
     }
     else{

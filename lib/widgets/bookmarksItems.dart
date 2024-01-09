@@ -26,7 +26,6 @@ class BookmarksItems extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: (){
-          print("click");
           Navigator.push(
             context,
             MaterialPageRoute(

@@ -22,7 +22,6 @@ class _SeeMoreGenreMoviesState extends State<SeeMoreGenreMovies> {
   @override
   void initState(){
     super.initState();
-    print(widget.genre);
     switch(widget.genre){
       case "Action":
         movies = Api().getActionMovies();

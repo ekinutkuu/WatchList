@@ -32,7 +32,6 @@ class _BookmarksState extends State<Bookmarks> {
 
     setState(() {
       _bookmarks = data.reversed.toList();
-      print("bookmarks length: ${_bookmarks.length}");
     });
   }
 

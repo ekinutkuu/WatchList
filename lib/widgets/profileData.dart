@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:watchlist/constants/colors.dart';
 
 class ProfileData extends StatelessWidget {

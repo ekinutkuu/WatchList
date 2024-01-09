@@ -53,7 +53,6 @@ class _WatchlistState extends State<Watchlist> {
         return orderA.compareTo(orderB);
       });
       _movies = data.toList();
-      print("movies length: ${_movies.length}");
     });
   }
 

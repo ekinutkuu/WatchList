@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:watchlist/constants/colors.dart';
 
 class Empty extends StatelessWidget {
   const Empty({super.key});

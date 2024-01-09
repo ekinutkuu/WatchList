@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:watchlist/constants/colors.dart';
 
 class PageTitle extends StatelessWidget {
   const PageTitle({super.key, required this.text, required this.fontSize, required this.color});

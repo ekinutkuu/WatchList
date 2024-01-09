@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:watchlist/api_key2.dart';
+import 'package:watchlist/api_key.dart';
 import 'package:watchlist/models/movie.dart';
 
 class Api{
