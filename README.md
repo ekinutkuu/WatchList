@@ -73,6 +73,8 @@ You can change the status of the movies by pressing the <b>"Edit"</b> button
 
 ## Bookmarks
 
+Here you can view the movies you have added to your bookmarks. If there is a movie you want to delete from the list, just press and hold on it and confirm!
+
 <div align="center" style="width:100%;display:flex;justify-content:space-between;">
 <img width="32%" src="https://github.com/ekinutkuu/WatchList/blob/master/screenshots/bookmarks1.png" align="center" alt="screenshot" />
 </div>

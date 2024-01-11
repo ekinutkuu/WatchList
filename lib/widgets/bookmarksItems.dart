@@ -3,9 +3,15 @@ import 'package:hive/hive.dart';
 import 'package:watchlist/constants/colors.dart';
 import 'package:watchlist/screens/moviePage.dart';
 import 'package:watchlist/models/movie.dart';
+import 'package:watchlist/widgets/deleteConfirmation.dart';
 
 class BookmarksItems extends StatelessWidget {
-  const BookmarksItems ({super.key, required this.title, required this.image, required this.overview});
+  const BookmarksItems ({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.overview
+  });
 
   final String title;
   final String image;
@@ -39,6 +45,9 @@ class BookmarksItems extends StatelessWidget {
               ),
             ),
           );
+        },
+        onLongPress: (){
+          showAlertDialogDelete(context, "Do you want to delete ?", title);
         },
         child: Stack(
           children: [
