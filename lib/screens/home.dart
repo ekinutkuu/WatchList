@@ -64,6 +64,7 @@ class _HomeState extends State<Home> {
               alignment: Alignment.center,
               child: Container(
                 height: 55.0,
+                width: deviceWidth * 0.9,
                 padding: EdgeInsets.all(10),
                 margin: EdgeInsets.symmetric(horizontal: 10.0,),
                 decoration: BoxDecoration(
@@ -78,7 +79,7 @@ class _HomeState extends State<Home> {
                       size: 30.0,
                     ),
                     Container(
-                      width: 300.0,
+                      width: deviceWidth * 0.7,
                       margin: EdgeInsets.only(left: 15.0),
                       child: TextFormField(
                         style: TextStyle(color: Colors.white),
@@ -142,39 +143,40 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: [
                   SizedBox(height: 25.0,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(width: deviceWidth * 0.04,),
-                      Text(
-                        "Action Movies",
-                        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.left
-                      ),
-                      SizedBox(width: deviceWidth * 0.22,),
-                      Container(
-                        width: 135.0,
-                        height: 35.0,
-                        child: ElevatedButton(
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SeeMoreGenreMovies(genre: "Action"),
-                              ),
-                            );
-                          },
-                          child: Text("See More...",
-                            style: TextStyle(fontSize: 13.0),
-                            textAlign: TextAlign.right
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: DarkBlue,
+                  Container(
+                    width: deviceWidth * 0.92,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Action Movies",
+                          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left
+                        ),
+                        SizedBox(width: deviceWidth * 0.15,),
+                        Container(
+                          width: 135.0,
+                          height: 35.0,
+                          child: ElevatedButton(
+                            onPressed: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SeeMoreGenreMovies(genre: "Action"),
+                                ),
+                              );
+                            },
+                            child: Text("See More...",
+                              style: TextStyle(fontSize: 13.0),
+                              textAlign: TextAlign.right
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: DarkBlue,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: deviceWidth * 0.04,),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(height: 25.0,),
                   SizedBox(
@@ -207,39 +209,40 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: [
                   SizedBox(height: 25.0,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(width: deviceWidth * 0.04,),
-                      Text(
-                        "Comedy Movies",
-                        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.left
-                      ),
-                      SizedBox(width: deviceWidth * 0.22,),
-                      Container(
-                        width: 135.0,
-                        height: 35.0,
-                        child: ElevatedButton(
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SeeMoreGenreMovies(genre: "Comedy"),
-                              ),
-                            );
-                          },
-                          child: Text("See More...",
-                            style: TextStyle(fontSize: 13.0),
-                            textAlign: TextAlign.right
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: DarkBlue,
+                  Container(
+                    width: deviceWidth * 0.92,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Comedy Movies",
+                          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left
+                        ),
+                        SizedBox(width: deviceWidth * 0.15,),
+                        Container(
+                          width: 135.0,
+                          height: 35.0,
+                          child: ElevatedButton(
+                            onPressed: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SeeMoreGenreMovies(genre: "Comedy"),
+                                ),
+                              );
+                            },
+                            child: Text("See More...",
+                              style: TextStyle(fontSize: 13.0),
+                              textAlign: TextAlign.right
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: DarkBlue,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: deviceWidth * 0.04,),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(height: 25.0,),
                   SizedBox(
@@ -272,39 +275,40 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: [
                   SizedBox(height: 25.0,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(width: deviceWidth * 0.04,),
-                      Text(
-                        "Adventure Movies",
-                        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.left
-                      ),
-                      SizedBox(width: deviceWidth * 0.19,),
-                      Container(
-                        width: 135.0,
-                        height: 35.0,
-                        child: ElevatedButton(
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SeeMoreGenreMovies(genre: "Adventure"),
-                              ),
-                            );
-                          },
-                          child: Text("See More...",
-                            style: TextStyle(fontSize: 13.0),
-                            textAlign: TextAlign.right
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: DarkBlue,
+                  Container(
+                    width: deviceWidth * 0.92,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Adventure Movies",
+                          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left
+                        ),
+                        SizedBox(width: deviceWidth * 0.08,),
+                        Container(
+                          width: 135.0,
+                          height: 35.0,
+                          child: ElevatedButton(
+                            onPressed: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SeeMoreGenreMovies(genre: "Adventure"),
+                                ),
+                              );
+                            },
+                            child: Text("See More...",
+                              style: TextStyle(fontSize: 13.0),
+                              textAlign: TextAlign.right
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: DarkBlue,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: deviceWidth * 0.04,),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(height: 25.0,),
                   SizedBox(

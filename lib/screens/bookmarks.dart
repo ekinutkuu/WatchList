@@ -104,7 +104,7 @@ class _BookmarksState extends State<Bookmarks> {
                           image: _bookmarks[leftIndex]["image"],
                           overview: _bookmarks[leftIndex]["overview"],
                         ),
-                        SizedBox(width: deviceWidth * 0.05,),
+                        SizedBox(width: deviceWidth * 0.04,),
                         if (rightIndex < _bookmarks.length)
                           BookmarksItems(
                             title: _bookmarks[rightIndex]["title"],

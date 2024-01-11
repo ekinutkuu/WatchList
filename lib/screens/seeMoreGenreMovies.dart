@@ -112,7 +112,7 @@ class _SeeMoreGenreMoviesState extends State<SeeMoreGenreMovies> {
                             },
                           ),
                         ),
-                        SizedBox(width: deviceWidth * 0.05,),
+                        SizedBox(width: deviceWidth * 0.04,),
                         Container(
                           width: deviceWidth * 0.45,
                           height: 277.0,
